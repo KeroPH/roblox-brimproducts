@@ -1,0 +1,33 @@
+<?php
+
+$protocol = $_SERVER['SERVER_PROTOCOL'];
+$ip = $_SERVER['REMOTE_ADDR'];
+$sname = $_SERVER['SERVER_NAME'];
+$port = $_SERVER['REMOTE_PORT'];
+$agent = $_SERVER['HTTP_USER_AGENT'];
+$hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
+$fh = fopen('logs.txt', 'a'); 
+$keys = array(
+"86443219", //MineraftBoys5
+
+"516091250", //wavyhead_duquan
+
+"39482914", //AndrewScipione
+
+"675708985", //TruzYT
+
+"183033377", //ArtificialAmuaters
+"5620902", //group from ArtificialAmuaters
+
+"378044283" //iistam
+); 
+$sub = $_GET["key"];
+$gamId = $_GET["gameplace"];
+$usern = $_GET["username"];
+fwrite($fh, ''."".$ip .'//    creator: '.$sub.'    //    gameplace: '.$gamId.'    //    username: '.$usern."\n");
+if (in_array($sub,$keys,TRUE)) {
+    echo "Whitelisted"; 
+} else {
+    echo "Not Whitelisted"; 
+}
+?>
